@@ -2,10 +2,8 @@ name: Build
 
 on:
   push:
-    branches:
-      - main
-    tags-ignore:
-      - '**'
+    tags:
+      - "*"
 
 jobs:
   build:
@@ -21,11 +19,11 @@ jobs:
           version: 9
           run_install: false
 
-      - name: Install NodeJS
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 23
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -33,11 +31,11 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Store artifacts
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: lfe-problem-admin
-          path: dist/lfe-problem-admin.user.js
+          name: lfe-problem-admin-fork
+          path: dist
 
   release:
     runs-on: ubuntu-latest
@@ -47,6 +45,28 @@ jobs:
       contents: write
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: lfe-problem-admin-fork
+          path: dist
+
       - name: Generate changelog
         run: pnpm dlx changelogen@latest --output dist/changelog.md
 
@@ -54,5 +74,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           body_path: dist/changelog.md
-          files: dist/lfe-problem-admin.user.js
+          files: dist/*.user.js
           token: ${{ secrets.GITHUB_TOKEN }}
