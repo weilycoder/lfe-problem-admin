@@ -1,4 +1,6 @@
-## lfe-problem-admin [![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## lfe-problem-admin-fork [![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+This is a **forked** version maintained by weilycoder.
 
 Problem management panel for lfe.
 
