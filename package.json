@@ -2,7 +2,7 @@
   "name": "lfe-problem-admin-fork",
   "private": true,
   "description": "Problem management panel for lfe",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "author": "hellolin",
   "license": "MIT",
   "type": "module",
