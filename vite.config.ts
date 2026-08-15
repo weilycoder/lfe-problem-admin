@@ -11,9 +11,9 @@ export default defineConfig({
       entry: 'src/index.ts',
       build: {
         externalGlobals: {
-          'react': ['React', 'https://cdn.hellolin.top/npm/react@18.3.1/umd/react.production.min.js'],
-          'react-dom': ['ReactDOM', 'https://cdn.hellolin.top/npm/react-dom@18.3.1/umd/react-dom.production.min.js'],
-          'sweetalert2': ['Swal', 'https://cdn.hellolin.top/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js'],
+          'react': ['React', 'https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js'],
+          'react-dom': ['ReactDOM', 'https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js'],
+          'sweetalert2': ['Swal', 'https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js'],
         },
       },
       userscript: {
@@ -25,8 +25,8 @@ export default defineConfig({
         license: pkg.license,
         connect: ['www.luogu.com.cn'],
         match: ['*://www.luogu.com.cn/*'],
-        updateURL: 'https://github.com/VLTHellolin/lfe-problem-admin/releases/latest/download/lfe-problem-admin.user.js',
-        downloadURL: 'https://github.com/VLTHellolin/lfe-problem-admin/releases/latest/download/lfe-problem-admin.user.js',
+        updateURL: 'https://github.com/weilycoder/lfe-problem-admin/releases/latest/download/lfe-problem-admin.user.js',
+        downloadURL: 'https://github.com/weilycoder/lfe-problem-admin/releases/latest/download/lfe-problem-admin.user.js',
       },
     }),
   ],
